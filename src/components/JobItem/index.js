@@ -24,12 +24,14 @@ const JobItem = props => {
             <img
               className="company-logo"
               src={companyLogoUrl}
-              alt="company logo"
+              alt="job details company logo"
             />
             <div className="title-rating-container">
+              <h1>title</h1>
               <h1 className="title-heading">{title}</h1>
               <div className="star-rating-container">
                 <AiFillStar className="star-icon" />
+                <h1>rating</h1>
                 <p className="rating-text">{rating}</p>
               </div>
             </div>
@@ -38,6 +40,7 @@ const JobItem = props => {
             <div className="location-job-type-container">
               <div className="location-icon-location-container">
                 <MdLocationOn className="location-icon" />
+                <h1>location</h1>
                 <p className="location">{location}</p>
               </div>
               <div className="employment-type-icon-employment-type-container">

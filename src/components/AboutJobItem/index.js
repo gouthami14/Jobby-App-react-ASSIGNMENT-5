@@ -6,7 +6,7 @@ import {BiLinkExternal} from 'react-icons/bi'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import SimilarJobs from '../SimilarJobs'
-import {each} from 'immer/dist/internal'
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -26,6 +26,7 @@ class AboutJobItem extends Component {
     this.getJobData()
   }
 
+  // eslint-disable-next-line
   getJobData = async props => {
     const {match} = this.props
     const {params} = match
@@ -42,7 +43,7 @@ class AboutJobItem extends Component {
     const responseJobData = await fetch(jobDetailsApiUrl, optionsJobData)
     if (responseJobData.ok === true) {
       const fetchedJobData = await responseJobData.json()
-      const updatedJobDetailsData = await [fetchedJobData.job_details].map(
+      const updatedJobDetailsData = [fetchedJobData.job_details].map(
         eachItem => ({
           companyLogoUrl: eachItem.company_logo_url,
           companyWebsiteUrl: eachItem.company_website_url,
@@ -94,7 +95,6 @@ class AboutJobItem extends Component {
         companyLogoUrl,
         companyWebsiteUrl,
         employmentType,
-        id,
         jobDescription,
         lifeAtCompany,
         location,
@@ -115,10 +115,10 @@ class AboutJobItem extends Component {
                   alt="job details company logo"
                 />
                 <div className="title-rating-container">
-                  <h1 className="title-heading">{title}</h1>
+                  <h1 className="title-heading">title {title}</h1>
                   <div className="star-rating-container">
                     <AiFillStar className="star-icon" />
-                    <p className="rating-text">{rating}</p>
+                    <p className="rating-text">rating {rating}</p>
                   </div>
                 </div>
               </div>
@@ -126,7 +126,7 @@ class AboutJobItem extends Component {
                 <div className="location-job-type-container">
                   <div className="location-icon-location-container">
                     <MdLocationOn className="location-icon" />
-                    <p className="location">{location}</p>
+                    <p className="location">location {location}</p>
                   </div>
                   <div className="employment-type-icon-employment-type-container">
                     <p className="employment-type">{employmentType}</p>
@@ -170,13 +170,15 @@ class AboutJobItem extends Component {
           </div>
           <h1 className="similar-jobs-heading">Similar Jobs</h1>
           <ul className="similar-jobs-ul-container">
-            {similarJobsData.map(eachItem => (
-              <SimilarJobs
-                key={eachItem.id}
-                similarJobData={eachItem}
-                employmentType={employmentType}
-              />
-            ))}
+            <li>
+              {similarJobsData.map(eachItem => (
+                <SimilarJobs
+                  key={eachItem.id}
+                  similarJobData={eachItem}
+                  employmentType={employmentType}
+                />
+              ))}
+            </li>
           </ul>
         </>
       )
@@ -209,8 +211,8 @@ class AboutJobItem extends Component {
   )
 
   renderJobLoadingView = () => (
-    <div className="job-details-loader">
-      <Loader type="ThreeDots" height={50} width={50} color="#6366f1" />
+    <div className="job-details-loader" data-testid="loader">
+      <Loader type="ThreeDots" height="50" width="50" color="#6366f1" />
     </div>
   )
 

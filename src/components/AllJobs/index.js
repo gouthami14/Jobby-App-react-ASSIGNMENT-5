@@ -80,6 +80,7 @@ class AllJobs extends Component {
   onGetProfileDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
+    // eslint-disable-next-line
     const {checkboxInputs, radioInput, searchInput} = this.state
     const profileApiUrl = 'https://apis.ccbp.in/profile'
     const optionsProfile = {
@@ -161,6 +162,7 @@ class AllJobs extends Component {
         eachItem => eachItem !== event.target.id,
       )
       this.setState(
+        // eslint-disable-next-line
         prevState => ({checkboxInputs: filteredData}),
         this.onGetJobDetails,
       )
@@ -199,7 +201,7 @@ class AllJobs extends Component {
   )
 
   renderLoadingView = () => (
-    <div className="loader-container">
+    <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#6366f1" height="50" width="50" />
     </div>
   )
@@ -331,6 +333,7 @@ class AllJobs extends Component {
   }
 
   render() {
+    // eslint-disable-next-line
     const {checkboxInputs, radioInput, searchInput} = this.state
     return (
       <>
