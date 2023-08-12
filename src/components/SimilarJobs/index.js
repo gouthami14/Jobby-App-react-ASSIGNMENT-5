@@ -7,8 +7,10 @@ const SimilarJobs = props => {
 
   const {
     companyLogoUrl,
-    employmentType,
+    // eslint-disable-next-line
+    id,
     jobDescription,
+    employmentType,
     location,
     rating,
     title,

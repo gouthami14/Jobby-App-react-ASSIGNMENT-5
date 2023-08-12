@@ -5,7 +5,7 @@ import './index.css'
 const Home = props => {
   const onRedirectToJobs = () => {
     const {history} = props
-    history.replace('/login')
+    history.replace('/jobs')
   }
 
   return (

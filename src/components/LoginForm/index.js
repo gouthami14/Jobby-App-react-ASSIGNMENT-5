@@ -9,7 +9,7 @@ const websiteLogoInFrom =
 class LoginForm extends Component {
   state = {username: '', password: '', showSubmitError: false, errorMsg: ''}
 
-  onGetUserName = event => this.setState({username: event.target.value})
+  onGetUsername = event => this.setState({username: event.target.value})
 
   onGetPassword = event => this.setState({password: event.target.value})
 
@@ -63,7 +63,7 @@ class LoginForm extends Component {
             className="form-input"
             type="text"
             value={username}
-            onChange={this.onGetUserName}
+            onChange={this.onGetUsername}
             placeholder="username"
             id="username"
           />

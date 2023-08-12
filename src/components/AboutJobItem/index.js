@@ -52,7 +52,7 @@ class AboutJobItem extends Component {
           jobDescription: eachItem.job_description,
           lifeAtCompany: {
             description: eachItem.life_at_company.description,
-            imageUrl: eachItem.life_at_company.img_url,
+            imageUrl: eachItem.life_at_company.image_url,
           },
           location: eachItem.location,
           packagePerAnnum: eachItem.package_per_annum,
@@ -95,6 +95,8 @@ class AboutJobItem extends Component {
         companyLogoUrl,
         companyWebsiteUrl,
         employmentType,
+        // eslint-disable-next-line no-unused-vars
+        id,
         jobDescription,
         lifeAtCompany,
         location,
@@ -115,10 +117,10 @@ class AboutJobItem extends Component {
                   alt="job details company logo"
                 />
                 <div className="title-rating-container">
-                  <h1 className="title-heading">title {title}</h1>
+                  <h1 className="title-heading">{title}</h1>
                   <div className="star-rating-container">
                     <AiFillStar className="star-icon" />
-                    <p className="rating-text">rating {rating}</p>
+                    <p className="rating-text">{rating}</p>
                   </div>
                 </div>
               </div>
@@ -170,15 +172,13 @@ class AboutJobItem extends Component {
           </div>
           <h1 className="similar-jobs-heading">Similar Jobs</h1>
           <ul className="similar-jobs-ul-container">
-            <li>
-              {similarJobsData.map(eachItem => (
-                <SimilarJobs
-                  key={eachItem.id}
-                  similarJobData={eachItem}
-                  employmentType={employmentType}
-                />
-              ))}
-            </li>
+            {similarJobsData.map(eachItem => (
+              <SimilarJobs
+                key={eachItem.id}
+                similarJobData={eachItem}
+                employmentType={employmentType}
+              />
+            ))}
           </ul>
         </>
       )

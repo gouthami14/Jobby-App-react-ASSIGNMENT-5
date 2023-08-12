@@ -111,7 +111,7 @@ class AllJobs extends Component {
   onGetJobDetails = async () => {
     this.setState({apiJobsStatus: apiJobsStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const {checkboxInputs, searchInput, radioInput} = this.state
+    const {checkboxInputs, radioInput, searchInput} = this.state
     const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${checkboxInputs}&minimum_package=${radioInput}&search=${searchInput}`
     const optionsJobs = {
       headers: {
